@@ -1,26 +1,34 @@
+import { useUserStore } from "../../store/User";
+import { DivContent, DivInfo, Imagem, Paragraph, Title } from "./ContentStyles";
 
 
 function Content() {
+    const { user } = useUserStore(state => state);
+
     // const handleGetData = async () =>{
-    //     let user = await fetch(`https://api.github.com/users/${buser}`)
+    //     let buser = await fetch(`https://api.github.com/users/cecidoliveira`)
+    //     console.log(buser)
     // } 
     return (
-      <div>
-            <div>
-                <img src="https://github.com/cecidoliveira.png" alt="" />
-                <div>
-                    <h3>Nome</h3>
-                    <p>@Nomedabusca</p>
+      <>    
+            
+            <DivContent>
+                <Imagem src="https://github.com/cecidoliveira.png" alt="icone de perfil" />
+                
+                <DivInfo>
+                    <Title>{user}</Title>
+                    <Paragraph>@{user}</Paragraph>
                     <br/>
-                    <p>descrição</p>
-                </div>
-            </div>
-            <div>
-                <h2>Repositorios</h2>
+                    <Paragraph>descrição</Paragraph>
+                </DivInfo>
 
-            </div>
+            </DivContent>
 
-      </div>
+            <DivContent>
+                <Title>Repositorios</Title>
+            </DivContent>
+
+      </>
     )
   }
   
