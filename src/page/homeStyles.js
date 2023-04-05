@@ -13,10 +13,10 @@ export const DivContent = styled.div`
 
 
 export const Imagem = styled.img`
-    height: 55rem;
+    height: 54.5rem;
 
     @media only screen and (min-width: 1600px) {
-        height: 90rem;
+        height: 85.7rem;
     } 
     
 `

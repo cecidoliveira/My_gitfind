@@ -8,6 +8,24 @@ export const DivContent = styled.div`
     color: #7B7D80;
 
 `
+export const DivContentNF = styled.div`
+    text-align: center;
+    margin: 8rem 25rem 0 0;
+    color: #7B7D80;
+
+    p{
+        margin: 2rem 0;
+    }
+    img{
+        width: 40%
+    }
+
+    @media only screen and (min-width: 1600px) {
+        margin: 10rem 20rem 0 0;
+    } 
+
+`
+
 export const DivInfo = styled.div`
     margin: 0 2rem;
 
