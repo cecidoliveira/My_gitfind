@@ -2,13 +2,10 @@ import { useUserStore } from "../../store/User";
 import { DivContent, DivInfo, Imagem, Paragraph, Title } from "./ContentStyles";
 
 
+
 function Content() {
     const { user } = useUserStore(state => state);
-
-    // const handleGetData = async () =>{
-    //     let buser = await fetch(`https://api.github.com/users/cecidoliveira`)
-    //     console.log(buser)
-    // } 
+   
     return (
       <>    
             

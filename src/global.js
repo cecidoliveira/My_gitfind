@@ -11,6 +11,7 @@ export const Global = createGlobalStyle`
         font-size: 62.5%;
     }
     :root body {
+        height: 100vh;
         font-family: 'Roboto Mono', monospace;
         background-color: #111317;
     }
