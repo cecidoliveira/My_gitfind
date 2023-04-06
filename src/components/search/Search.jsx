@@ -1,31 +1,44 @@
 import { useState } from "react";
-import { useUserStore } from "../../store/User";
 import { Input_button, Input_text } from "./SearchStyles";
-import Content from '../info/Content'
-import ContentNF from '../info/ContentNF'
+import { useUserStore } from "../../store/User";
+import Content from "../info/Content";
+
 
 function Search() {
-    const [isBusca, setBusca] = useState('');
-    const [isNotfound, setNotfound] = useState('');
-    const { buscarUser } = useUserStore(state => state);
 
-    function handleVerificaUser(){
-        buscarUser(isBusca)
+    const [isUsuario, setUsuario] = useState('');
+    const { resultBuscas, NFbusca } = useUserStore(state => state);
+
+    function GetInfo() {
+  
+      fetch(`https://api.github.com/users/${isUsuario}`)
+      .then(response=> response.json())
+      .then(data => {
         
-        fetch(`https://api.github.com/users/${isBusca}`)
-          .then(response=> response.json())
-          .then(data => {
-            const message = data.message;
-            setNotfound(message)
-          })
-          .catch(error => console.error(error));
-    } 
+          if(data.message == 'Not Found'){
+            console.log('usuario não encontrado')
+            NFbusca()
+          }
+        
+          else{
+              const nome = data.name;
+              const imagem = data.avatar_url;
+              const numrepo = data.public_repos;
+              const bio = data.bio;
+              
+              resultBuscas([isUsuario, nome, numrepo, bio, imagem])
+              
+          }  
+  
+      })
+      .catch(error => console.error(error));
+   }
 
     return (
       <>
-        <Input_text type="text" placeholder="@usuario" onChange={(event) => setBusca(event.target.value)}/>
-        <Input_button type="button" value="Buscar" onClick={handleVerificaUser}/>
-        {isNotfound === 'Not Found' ? <ContentNF/> : isNotfound === undefined ? <Content/> : null} 
+        <Input_text type="text" placeholder="@usuario" onChange={(event) => setUsuario(event.target.value)}/>
+        <Input_button type="button" value="Buscar" onClick={()=> GetInfo()}/>
+        
       </>
     )
   }
