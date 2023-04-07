@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Input_text = styled.input`
-
     width: 30.7rem;
     height: 4.2rem;
 
@@ -16,6 +15,16 @@ export const Input_text = styled.input`
         font-size: 2rem;
         width: 50.7rem;
         height: 5.2rem;
+    } 
+    @media only screen and (max-width: 430px) {
+        margin: 5rem 0 1rem;
+    } 
+`
+export const DivSearch = styled.div`
+    @media only screen and (max-width: 430px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     } 
 `
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Input_button, Input_text } from "./SearchStyles";
+import { DivSearch, Input_button, Input_text } from "./SearchStyles";
 import { useUserStore } from "../../store/User";
 
 
@@ -33,11 +33,11 @@ function Search() {
    }
 
     return (
-      <>
+      <DivSearch>
         <Input_text type="text" placeholder="@usuario" onChange={(event) => setUsuario(event.target.value)}/>
         <Input_button type="button" value="Buscar" onClick={()=> GetInfo()}/>
         
-      </>
+      </DivSearch>
     )
   }
   

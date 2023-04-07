@@ -30,6 +30,11 @@ export const DivList = styled.div`
     @media only screen and (min-width: 1600px) {
         height: 45vh;
     } 
+    @media only screen and (max-width: 430px) {
+        height: auto;
+        overflow-y: visible;
+    } 
+
 `
 export const DivTitleRepo = styled.div`
     display: flex;
@@ -65,6 +70,10 @@ export const TitleRepo = styled.a`
     color: #4264A4;
     font-size: 2.5rem;
     padding: 1rem 5rem;
+    @media only screen and (max-width: 430px) {
+        word-wrap: break-word;
+    } 
+    
 `
 
 

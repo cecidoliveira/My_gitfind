@@ -7,6 +7,11 @@ export const DivHeader = styled.header`
     align-items: center;
 
     background-color: #23272D;
+
+    @media only screen and (max-width: 430px) {
+        position: fixed;
+        width: 100%;
+    } 
 `
 
 export const Title = styled.h1`
