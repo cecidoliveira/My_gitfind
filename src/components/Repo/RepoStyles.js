@@ -10,11 +10,22 @@ export const DivRepo = styled.div`
     } 
 `
 export const DivList = styled.div`
-    width: 100%;
+    width: 97%;
     height: 30vh;
     overflow-y: auto;
 
-    
+     /* scroll */
+     ::-webkit-scrollbar {
+        width: 9px;
+    }
+    ::-webkit-scrollbar-track {
+        background-color: #23272D;
+        border-radius: 0.3rem;         
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: #7B7D80;
+        border-radius: 0.4rem;     
+    }
 
     @media only screen and (min-width: 1600px) {
         height: 45vh;
