@@ -58,7 +58,10 @@ export const Title = styled.h3`
 `
 
 
-export const TitleRepo = styled.h3`
+export const TitleRepo = styled.a`
+    display: block;
+    text-decoration: none;
+    font-weight: 700;
     color: #4264A4;
     font-size: 2.5rem;
     padding: 1rem 5rem;

@@ -21,7 +21,7 @@ function ItemList() {
     return (
         <>
             {repositories.map(repo => (
-                <TitleRepo key={repo.id}>{repo.name}</TitleRepo>
+                <TitleRepo key={repo.id} href={repo.html_url} target="_blank">{repo.name}</TitleRepo>
             ))}
         </>
         
