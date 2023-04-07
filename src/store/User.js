@@ -3,24 +3,42 @@ import {create} from 'zustand'
 
 export const useUserStore = create((set) =>({
     user: '',
+
+    buscaUsuario: (busca) => set((state) =>({
+        user: busca,      
+    })),
+
     nome: '',
+
+    buscaNome: (busca) => set((state) =>({
+        nome: busca,      
+    })),
+
     numrepo: 0,
-    bio: '',
+
+    buscaNumRepo: (busca) => set((state) =>({
+        numrepo: busca,      
+    })),
+
+
+    descricao: '',
+
+    buscaDescricao: (busca) => set((state) =>({
+        descricao: busca,      
+    })),
+
+
     imagem: '',
+
+    buscaImagem: (busca) => set((state) =>({
+        imagem: busca,      
+    })),
+
+
     informacao: '',
 
-
-    resultBuscas: (busca) => set((state) =>({
-        user: busca[0],
-        nome: busca[1],
-        numrepo: busca[2],
-        bio: busca[3],
-        imagem: busca[4],
-        informacao: 'found'
-    })),
-    
-    NFbusca: (busca) => set((state) =>({
-        informacao: 'not found'
+    NFbusca: (status) => set((state) =>({
+        informacao: status,
     })),
     
 }))

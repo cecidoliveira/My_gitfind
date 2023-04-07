@@ -5,7 +5,7 @@ import img from '../../assets/gitfind_NF.svg'
 
 
 function Content() {
-    const { user, nome, bio, imagem, informacao} = useUserStore(state => state);
+    const { user, nome, descricao, imagem, informacao} = useUserStore(state => state);
 
     if(informacao == 'not found'){
       return (
@@ -15,7 +15,9 @@ function Content() {
           <Paragraph>Verifique se o nome do usuario da busca foi digitado corretamente.</Paragraph>
         </DivContentNF>
       )
-    }else{
+    }
+    
+    else{
       return (
         <>    
           <DivContent>
@@ -25,7 +27,7 @@ function Content() {
                     <Title>{nome}</Title>
                     <Paragraph>@{user}</Paragraph>
                     <br/>
-                    <Paragraph>{bio}</Paragraph>
+                    <Paragraph>{descricao}</Paragraph>
                 </DivInfo>
             </DivContent>
             

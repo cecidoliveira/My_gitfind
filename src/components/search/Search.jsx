@@ -1,35 +1,33 @@
 import { useState } from "react";
 import { Input_button, Input_text } from "./SearchStyles";
 import { useUserStore } from "../../store/User";
-import Content from "../info/Content";
+
 
 
 function Search() {
 
     const [isUsuario, setUsuario] = useState('');
-    const { resultBuscas, NFbusca } = useUserStore(state => state);
+    const { NFbusca, buscaUsuario, buscaNome, buscaImagem, buscaNumRepo, buscaDescricao} = useUserStore(state => state);
 
-    function GetInfo() {
+      async function GetInfo() {
   
-      fetch(`https://api.github.com/users/${isUsuario}`)
-      .then(response=> response.json())
-      .then(data => {
-        
-          if(data.message == 'Not Found'){
-            console.log('usuario não encontrado')
-            NFbusca()
-          }
-        
-          else{
-              const nome = data.name;
-              const imagem = data.avatar_url;
-              const numrepo = data.public_repos;
-              const bio = data.bio;
+        await fetch(`https://api.github.com/users/${isUsuario}`)
+                .then(response=> response.json())
+                .then(data => {
+          
+                if(data.message == 'Not Found'){
+                  console.log('usuario não encontrado')
+                  NFbusca('not found')
+                }
               
-              resultBuscas([isUsuario, nome, numrepo, bio, imagem])
-              
-          }  
-  
+                else{
+                    buscaUsuario(isUsuario)
+                    buscaNome(data.name)
+                    buscaImagem(data.avatar_url)
+                    buscaNumRepo(data.public_repos)
+                    buscaDescricao(data.bio)
+                    NFbusca('found')
+                }  
       })
       .catch(error => console.error(error));
    }

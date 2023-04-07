@@ -1,14 +1,20 @@
 import ItemList from "./ItemLst";
-import { DivList, DivRepo, Title } from "./RepoStyles";
+import { DivList, DivRepo, DivTitleRepo, Paragraph, Title } from "./RepoStyles";
+import { useUserStore } from "../../store/User";
+
 
 function Repo() {
-   
+  const { numrepo } = useUserStore(state => state);
+
     return (
     <DivRepo>
-          <Title>Repositórios</Title>
+          <DivTitleRepo>
+            <Title>Repositórios</Title>
+            <Paragraph>{numrepo}</Paragraph>
+          </DivTitleRepo>
 
             <DivList>
-                <ItemList/>
+              <ItemList/>
             </DivList>
     </DivRepo>
     )
