@@ -46,6 +46,9 @@ export const DivContentNF = styled.div`
 
 export const DivInfo = styled.div`
     margin: 0 2rem;
+    @media only screen and (max-width: 430px) {
+        width: 60%;
+    } 
 
 `
 
