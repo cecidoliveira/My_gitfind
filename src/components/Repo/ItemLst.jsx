@@ -9,8 +9,7 @@ function ItemList() {
 
     useEffect(() => {
         async function fetchRepositories() {
-            const apiUrl = `https://api.github.com/users/${user}/repos`;
-            const response = await fetch(apiUrl);
+            const response = await fetch(`https://api.github.com/users/${user}/repos`);
             const data = await response.json();
             setRepositories(data);
         }
